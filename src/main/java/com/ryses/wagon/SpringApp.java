@@ -47,7 +47,7 @@ public class SpringApp extends Application {
         stage.setTitle("Wagon");
         stage.initOwner(primaryStage);
         stage.setWidth(400);
-        stage.setHeight(450);
+        stage.setHeight(490);
         stage.setIconified(true);
         stage.setResizable(false);
         stage.initModality(Modality.APPLICATION_MODAL);

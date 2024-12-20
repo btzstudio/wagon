@@ -4,7 +4,6 @@ import com.ryses.wagon.conversion.I18nFileConversionFacade;
 import com.ryses.wagon.conversion.domain.ConversionRequest;
 import com.ryses.wagon.version.VersionsDiscoverer;
 import com.ryses.wagon.version.domain.Version;
-import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
@@ -17,7 +16,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.DirectoryChooser;
-import javafx.util.Duration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
@@ -39,18 +37,25 @@ public class StageController implements Initializable {
 
     private final VersionsDiscoverer versionsDiscoverer;
     private final I18nFileConversionFacade conversionFacade;
+
     @FXML
     private Button browseButton;
+
     @FXML
     private Label directoryPath;
+
     @FXML
     private Label versionLabel;
+
     @FXML
     private ComboBox<Version> versionSelector;
+
     @FXML
     private StackPane overlay;
+
     @FXML
     private AnchorPane mainContent;
+
     @FXML
     private Button convertButton;
 
@@ -172,31 +177,4 @@ public class StageController implements Initializable {
             onDirectoryChosen.accept(dir);
         });
     }
-
-    /**
-     * var primaryStage = applicationContext.getBean("primaryStage", Stage.class);
-     *
-     *                 Label secondLabel = new Label("I'm a Label on new Window");
-     *
-     *                 StackPane secondaryLayout = new StackPane();
-     *                 secondaryLayout.getChildren().add(secondLabel);
-     *
-     *                 var secondScene = new Scene(secondaryLayout, 230, 100);
-     *
-     *                 var newWindow = new Stage();
-     *                 newWindow.setTitle("Second Stage");
-     *                 newWindow.setScene(secondScene);
-     *
-     *                 // Specifies the modality for new window.
-     *                 newWindow.initModality(Modality.WINDOW_MODAL);
-     *
-     *                 // Specifies the owner Window (parent) for new window
-     *                 newWindow.initOwner(primaryStage);
-     *
-     *                 // Set position of second window, related to primary window.
-     *                 newWindow.setX(primaryStage.getX() + 200);
-     *                 newWindow.setY(primaryStage.getY() + 100);
-     *
-     *                 newWindow.show();
-     */
 }

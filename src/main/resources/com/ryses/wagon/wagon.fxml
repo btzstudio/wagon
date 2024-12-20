@@ -3,6 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <StackPane fx:id="overlay" maxHeight="450" maxWidth="400" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ryses.wagon.StageController">
     <AnchorPane fx:id="mainContent" prefHeight="450" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -13,7 +14,7 @@
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="62.0" prefWidth="129.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="62.0" prefWidth="99.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="33.0" prefWidth="33.0" />
-            <ColumnConstraints />
+                <ColumnConstraints />
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints maxHeight="225.0" minHeight="103.0" prefHeight="193.0" vgrow="SOMETIMES" />
@@ -43,7 +44,12 @@
                     <ComboBox fx:id="versionSelector" disable="true" prefWidth="150.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
                     <Button fx:id="convertButton" disable="true" mnemonicParsing="false" text="Convert" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
                 </GridPane>
-         </TitledPane>
+            </TitledPane>
+            <Label contentDisplay="CENTER" text="With ❤️ from Lyon" textFill="#ee48c5" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                <font>
+                    <Font size="12.0" />
+                </font>
+            </Label>
         </GridPane>
     </AnchorPane>
 </StackPane>
