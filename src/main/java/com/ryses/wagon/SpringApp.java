@@ -1,7 +1,6 @@
 package com.ryses.wagon;
 
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,6 +11,10 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
+
+import java.awt.*;
+import java.net.URL;
+import java.util.Objects;
 
 @SpringBootApplication
 public class SpringApp extends Application {
@@ -52,7 +55,10 @@ public class SpringApp extends Application {
         stage.setResizable(false);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(new Scene(root));
+        stage.getIcons().add(new javafx.scene.image.Image(Objects.requireNonNull(getClass().getResourceAsStream("wagon.png"))));
         stage.show();
+
+        buildTaskBarIcon();
 
         springContext.getBeanFactory().registerSingleton("primaryStage", stage);
     }
@@ -60,5 +66,23 @@ public class SpringApp extends Application {
     @Override
     public void stop() throws Exception {
         springContext.stop();
+    }
+
+    private void buildTaskBarIcon() {
+        var defaultToolkit = Toolkit.getDefaultToolkit();
+        var imageResource = getClass().getResource("wagon.png");
+        var logo = defaultToolkit.getImage(imageResource);
+
+        var taskbar = Taskbar.getTaskbar();
+
+        try {
+            taskbar.setIconImage(logo);
+        } catch (final UnsupportedOperationException e) {
+            System.out.println("The os does not support: 'taskbar.setIconImage'");
+        } catch (final SecurityException e) {
+            System.out.println("There was a security exception for: 'taskbar.setIconImage'");
+        }
+
+        System.setProperty("com.apple.mrj.application.apple.menu.about.name", "Wagon");
     }
 }
