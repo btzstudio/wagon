@@ -1,12 +1,9 @@
 package com.ryses.wagon.conversion.converter.domain.model;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import lombok.Getter;
 
 @Getter
-@JsonInclude(Include.NON_NULL)
 public class XliffFileNode {
 
     @JacksonXmlProperty(isAttribute = true)

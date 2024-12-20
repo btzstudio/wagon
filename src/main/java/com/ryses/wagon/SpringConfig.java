@@ -1,5 +1,6 @@
 package com.ryses.wagon;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.dataformat.xml.ser.ToXmlGenerator;
@@ -42,7 +43,9 @@ public class SpringConfig {
     @Scope(BeanDefinition.SCOPE_PROTOTYPE)
     public XmlMapper buildXmlMapper() {
         var xmlMapper = new XmlMapper();
-        xmlMapper.configure(ToXmlGenerator.Feature.WRITE_XML_DECLARATION, true );
+        xmlMapper.configure(ToXmlGenerator.Feature.WRITE_XML_DECLARATION, true);
+        xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
         xmlMapper.enable(SerializationFeature.INDENT_OUTPUT);
         return xmlMapper;
     }

@@ -5,8 +5,11 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import lombok.Getter;
 
 @Getter
-@JacksonXmlRootElement(namespace = "urn:oasis:names:tc:xliff:document:1.2", localName = "xliff")
+@JacksonXmlRootElement(localName = "xliff")
 public final class XliffNode {
+
+    @JacksonXmlProperty(isAttribute = true)
+    private String xmlns = "urn:oasis:names:tc:xliff:document:1.2";
 
     @JacksonXmlProperty(localName = "file")
     private XliffFileNode fileNode;
